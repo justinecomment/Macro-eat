@@ -7,4 +7,5 @@ tmp
 bower_components/
 e2e-tests/
 npm-debug.log*
+npm-debug.log.*
 .gitignore
