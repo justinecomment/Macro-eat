@@ -17,13 +17,33 @@ body, html{
 .userForm{
     width: 350px;
     height: 350px;
-    background-color:#F7F7F7;
-    margin-top: 30%;
-    padding: 4% 9%;
+    margin: 30% 20%;
+    padding: 8% 9%;
     text-align : center;
+    background-color:#F7F7F7;
+    box-shadow: 0px 0px 10px 5px rgba(84, 84, 84, 0.3);
+    border-radius: 10px;
 }
 
-.btn--raised.btn--blue{
+.btn--raised.btn--blue{ 
     margin: 10px 35px;
 }
 
+.text-field{
+    margin-top: -30px;
+}
+
+.chip{
+    background-color: white !important;
+    margin-left: 50px;
+    margin-top: 10px;
+    width: 100px;
+}
+
+.monSvg{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 306px;
+}

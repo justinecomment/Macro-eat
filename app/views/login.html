@@ -1,13 +1,29 @@
 <div class="content">
+    <br>
+    <div class="chip mr">
+        <span class="chip__label">Macro-Eat</span>
+    </div>
+
+    <svg width="100%" height="100%" class="monSvg" >
+        <path d="M 0,150 L 100,150 L 140,80 L180,150 L200,120 L220,150 L240,50 L260,280 L290,10 L320,200 L330,110  L340,150 L360,120 L380,150 L440,80 L490,150 L580,120 L660,150 L850,150 L900,110 L940,150 L960,120 L980,150 L1000,40 L1020,240 L1050,110 L1060,150 L1090,120 L1110,150 L1140,60 L1180,210 L1200,150 L1260,80 L1280,150 L1500,150 L1500,750 L0,750   "
+         style="fill:#F7F7F7; stroke:none"/>
+     </svg>
+
     <div class="col-md-6 col-md-offset-3">
         <form name="userForm" novalidate class="userForm">
-            <lx-text-field lx-label="Username" lx-focus="true">
-                <input type="text" ng-model="username" name="username" id="username">
+            
+            <lx-text-field lx-label="Username" 
+                           lx-focus="true"
+                           lx-error="userForm.$submitted && userForm.username.$pristine && userForm.username.$error.required">
+                <input type="text" ng-model="username" name="username" id="username" required>
             </lx-text-field>
+            <span class="text-field-error" ng-if="userForm.$submitted" ng-show="userForm.username.$pristine && userForm.username.$error.required">Le Nom est requis</span><br>
 
-            <lx-text-field lx-label="Password">
-                <input type="text" ng-model="password" name="password" id="password">
+            <lx-text-field lx-label="Password" lx-error="userForm.$submitted && userForm.password.$pristine && userForm.password.$error.required">
+                <input type="text" ng-model="password" name="password" id="password" required>
             </lx-text-field>
+            <span class="text-field-error" ng-if="userForm.$submitted" ng-show="userForm.password.$pristine && userForm.password.$error.required">Le Mot de Passe est requis</span><br>
+
             
             <lx-button lx-color="blue" ng-click="createUser()">Créer Compte</lx-button>
             <lx-button lx-color="blue" ng-click="login()">Se connecter</lx-button>
@@ -15,6 +31,9 @@
             <p id="error" class="error"></p>
             <p id="success"></p>
         </form>
-        
     </div>
+
+     
+
+
 </div>
