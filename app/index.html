@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Macro-eat</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="res/styles.css" />
 
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -12,6 +13,13 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="app.module.js"></script>
     <script src="app.config.js"></script>
+
+    <!-- lumX-->
+    <script src="bower_components/velocity/velocity.min.js"></script>
+    <script src="bower_components/moment/min/moment-with-locales.min.js"></script>
+    <link rel="stylesheet" href="bower_components/lumx/dist/lumx.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <script src="bower_components/lumx/dist/lumx.js"></script>
     
     <!-- SERVICES -->
     <script src="services/loginService.js"></script>
@@ -22,8 +30,9 @@
   </head>
 
   <body>
-    <div ng-controller="loginCtrl"></div>
-    <div ng-view></div>
+    <div ng-controller="loginCtrl">
+      <div ng-view></div>
+    </div>
   </body>
 
 </html>

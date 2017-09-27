@@ -1,4 +1,4 @@
-myApp.controller('loginCtrl', function($scope,$location, loginService) {
+myApp.controller('loginCtrl', function($scope, $location, loginService) {
    
   $scope.createUser = function(){
       if($scope.userForm.$valid === true){
@@ -22,6 +22,7 @@ myApp.controller('loginCtrl', function($scope,$location, loginService) {
 
         loginService.getUser(dataUser).then(function(result){
             $scope.login = result.data;
+            
         })
       }
   };

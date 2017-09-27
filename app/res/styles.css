@@ -7,3 +7,18 @@ body, html{
 .error{
     color: red;
 }
+
+.content{
+    background: linear-gradient(to right, #8FDCD7 , #68C1CF);
+    width: 100%;
+    height: 100vh;
+}
+
+.userForm{
+    width: 300px;
+    height: 300px;
+    background-color:#F7F7F7;
+    margin-top: 30%;
+    padding-left: 9%;
+    padding-top: 10%;
+}

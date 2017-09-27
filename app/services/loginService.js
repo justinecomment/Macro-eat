@@ -1,4 +1,4 @@
-myApp.service('loginService', function($http, $q){
+myApp.service('loginService', function($http){
     const baseUrl = 'http://localhost/macroeat';
    
 
@@ -16,10 +16,10 @@ myApp.service('loginService', function($http, $q){
 
     this.getUser = function(dataUser){
          return $http.get(baseUrl + '/login.php?username=' + dataUser.username + "&password=" + dataUser.password ).success(function(result){
-            document.getElementById("success").innerHTML = "Bienvenue.";
-             return result.data;
+            document.getElementById("success").innerHTML = "Bienvenue " + result;
+             return result;
         }).error(function(data){
-           document.getElementById("error").innerHTML = "Mauvais Login/Mot de passe. Veuillez recommencer."
+           document.getElementById("error").innerHTML = "Mauvais Login/Mot de passe. Veuillez recommencer.";
          });
     };
 
