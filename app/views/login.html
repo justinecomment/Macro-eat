@@ -1,15 +1,20 @@
 <div class="content">
     <div class="col-md-6 col-md-offset-3">
         <form name="userForm" novalidate class="userForm">
-            Username : <input type="text" name="username" ng-model="username"><br>
-            Password : <input type="text" name="password" ng-model="password"><br>
-            
-            <button ng-click="createUser()" >Créer compte</button>
-            <button ng-click="login()">Loggin</button>
-            <lx-button lx-color="blue">Button</lx-button>
-        </form>
+            <lx-text-field lx-label="Username" lx-focus="true">
+                <input type="text" ng-model="username" name="username" id="username">
+            </lx-text-field>
 
-        <p id="error" class="error"></p>
-        <p id="success"></p>
+            <lx-text-field lx-label="Password">
+                <input type="text" ng-model="password" name="password" id="password">
+            </lx-text-field>
+            
+            <lx-button lx-color="blue" ng-click="createUser()">Créer Compte</lx-button>
+            <lx-button lx-color="blue" ng-click="login()">Se connecter</lx-button>
+       
+            <p id="error" class="error"></p>
+            <p id="success"></p>
+        </form>
+        
     </div>
 </div>

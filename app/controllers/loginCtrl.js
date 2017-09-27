@@ -3,8 +3,8 @@ myApp.controller('loginCtrl', function($scope, $location, loginService) {
   $scope.createUser = function(){
       if($scope.userForm.$valid === true){
         var userToPost = {
-            'username' : $scope.username,
-            'password' : $scope.password
+            'username' : document.getElementById('username'),
+            'password' : document.getElementById('password')
         }
         
         loginService.postUser(userToPost).then(function(result){

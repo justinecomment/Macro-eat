@@ -15,10 +15,15 @@ body, html{
 }
 
 .userForm{
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
     background-color:#F7F7F7;
     margin-top: 30%;
-    padding-left: 9%;
-    padding-top: 10%;
+    padding: 4% 9%;
+    text-align : center;
 }
+
+.btn--raised.btn--blue{
+    margin: 10px 35px;
+}
+
