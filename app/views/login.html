@@ -16,21 +16,20 @@
             
             <lx-text-field lx-label="Username" 
                            lx-focus="true"
-                           lx-error="userForm.$submitted && userForm.username.$pristine && userForm.username.$error.required">
-                <input type="text" ng-model="username" name="username" id="username" required>
+                           lx-error="userForm.$submitted && userForm.username.$dirty && userForm.username.$error.required">
+                <input type="text" ng-model="username" name="username" id="username" ng-pattern="tryAnother()" required>
             </lx-text-field>
-            <span class="text-field-error" ng-if="userForm.$submitted" ng-show="userForm.username.$pristine && userForm.username.$error.required">Le Nom est requis</span><br>
+            <span class="text-field-error" ng-if="userForm.$submitted" ng-show="userForm.username.$dirty && userForm.username.$error.required">Le Mot de Passe est requis</span><br>
 
-            <lx-text-field lx-label="Password" lx-error="userForm.$submitted && userForm.password.$pristine && userForm.password.$error.required">
+            <lx-text-field lx-label="Password" lx-error="userForm.$submitted && userForm.password.$dirty && userForm.password.$error.required">
                 <input type="text" ng-model="password" name="password" id="password" required>
             </lx-text-field>
-            <span class="text-field-error" ng-if="userForm.$submitted" ng-show="userForm.password.$pristine && userForm.password.$error.required">Le Mot de Passe est requis</span><br>
-
+            <span class="text-field-error" ng-if="userForm.$submitted" ng-show="userForm.password.$dirty && userForm.password.$error.required">Le Mot de Passe est requis</span><br>
             
             <lx-button lx-color="white" ng-click="createUser()">Créer Compte</lx-button>
             <lx-button lx-color="white" ng-click="login()">Se connecter</lx-button>
        
-            <p id="error" class="error"></p>
+            <p id="error" class="error" ng-if="userForm.$submitted" ng-show="userForm.$invalid">Username existant</p>
             <p id="success"></p>
         </form>
     </div>
