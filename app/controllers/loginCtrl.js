@@ -1,11 +1,11 @@
-myApp.controller('loginCtrl', function($scope, $location, loginService, LxNotificationService, $cookies) {
+myApp.controller('loginCtrl', function($scope, $location, loginService, LxNotificationService, $route) {
    
     $scope.createUser = function(){
         var userToPost = {
             'username' : document.getElementById('username').value,
             'password' : document.getElementById('password').value
         }
-        loginService.postUser(userToPost).then(function(result){
+        loginService.createUser(userToPost).then(function(result){
             LxNotificationService.success('Compte de ' + userToPost.username + ' crée');
             $location.path('/accueil');
 
@@ -20,8 +20,16 @@ myApp.controller('loginCtrl', function($scope, $location, loginService, LxNotifi
                 'username' : document.getElementById('username').value,
                 'password' :document.getElementById('password').value
             }
-            loginService.getUser(dataUser);
-            LxNotificationService.notify('Bonjour ' + dataUser.username , undefined, undefined, undefined, undefined, undefined, 2 * 2000);
+            loginService.loginUser(dataUser).then(function(result){
+                LxNotificationService.notify('Bonjour ' + dataUser.username , undefined, undefined, undefined, undefined, undefined, 2 * 2000);
+                loginService.saveUser(dataUser.username);
+                $location.path('/accueil');
+                $route.reload();
+            }).catch(function(result){
+                document.getElementById('error').innerHTML = "Mauvais Login/Mot de passe";
+                $scope.userForm.$invalid = true;
+                
+            })
        }
     };
 

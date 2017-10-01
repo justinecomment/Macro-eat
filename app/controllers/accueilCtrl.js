@@ -1,13 +1,13 @@
 myApp.controller('accueilCtrl', function($scope, loginService) {
     
+    var myUser = loginService.getUserSaved();
+
     $scope.deconexion = function(){
         console.log('deconexion');
-    }
+    };
 
-     loginService.getUserForAccueil().then(function(result){
+    loginService.getUserForAccueil(myUser).then(function(result){
         $scope.user = result.data;
-        console.log($scope.user);
-
-    })
+    });
 
 });
