@@ -21,14 +21,12 @@ myApp.controller('loginCtrl', function($scope, $location, loginService, LxNotifi
                 'password' :document.getElementById('password').value
             }
             loginService.loginUser(dataUser).then(function(result){
-                LxNotificationService.notify('Bonjour ' + dataUser.username , undefined, undefined, undefined, undefined, undefined, 2 * 2000);
-                loginService.saveUser(dataUser.username);
+                $scope.token = result.data;
+                loginService.saveUser($scope.token);
                 $location.path('/accueil');
-                $route.reload();
             }).catch(function(result){
                 document.getElementById('error').innerHTML = "Mauvais Login/Mot de passe";
                 $scope.userForm.$invalid = true;
-                
             })
        }
     };
