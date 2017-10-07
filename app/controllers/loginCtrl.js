@@ -21,8 +21,9 @@ myApp.controller('loginCtrl', function($scope, $location, loginService, LxNotifi
                 'password' :document.getElementById('password').value
             }
             loginService.loginUser(dataUser).then(function(result){
-                $scope.token = result.data;
-                loginService.saveUser($scope.token);
+                var token = result.data;
+
+                localStorage.setItem('token', token);
                 $location.path('/accueil');
             }).catch(function(result){
                 document.getElementById('error').innerHTML = "Mauvais Login/Mot de passe";

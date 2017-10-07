@@ -32,13 +32,4 @@ myApp.service('loginService', function($http, $location){
     };
 
 
-    this.getUserForAccueil = function(token){
-         return $http.get(baseUrl + '/accueil.php?token=' + token)
-            .success(function(result){
-                return result;
-            }).error(function(data){
-                document.getElementById("error").innerHTML = "Not worked";
-            });   
-    };
-
 });
