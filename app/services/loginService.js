@@ -8,8 +8,7 @@ myApp.service('loginService', function($http, $location){
 
     this.getUserSaved = function(){
         return userSaved;
-    }
-
+    };
 
     this.createUser = function(userToPost){
         return $http.post(baseUrl + '/login.php?registerUsername=' + userToPost.username + "&password=" + userToPost.password, userToPost )

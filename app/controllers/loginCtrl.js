@@ -22,7 +22,7 @@ myApp.controller('loginCtrl', function($scope, $location, loginService, LxNotifi
             }
             loginService.loginUser(dataUser).then(function(result){
                 var token = result.data;
-
+                loginService.saveUser(dataUser.username);
                 localStorage.setItem('token', token);
                 $location.path('/accueil');
             }).catch(function(result){
